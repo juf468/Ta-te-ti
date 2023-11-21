@@ -1,8 +1,12 @@
+import Square from '../Square/Square';
+import './Board.css';
+
 //recive el state de los squares
 const Board = ({ squares }) => {
 	const createSquares = (values) => {
 		return values.map((value, index) => (
-			<div key={index}>{squares[value]}</div>
+			// <div key={index}>{squares[value]}</div>
+			<Square value={squares[value]} key={`squares_${value}`} />
 		));
 	};
 	//funcion que recibe valores y los manda a html
