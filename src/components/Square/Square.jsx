@@ -1,13 +1,19 @@
 import './Square.css';
+import classNames from 'classnames';
 
-const Square = ({ value, onclick, turn }) => {
+const Square = ({ value, onClick, turn }) => {
 	const handleClick = () => {
-		//validciones:
-		turn !== null && value === null && onclick();
-		//si el valor es null ejecutar onclilck, tambien valido el turn =
-		//es el turno de alguien y elvalor de ese cuadrado es null? entonces permito onclick
+		if (turn !== null && value === null) {
+			onClick();
+		}
 	};
 
-	return <div className="square" onclick={() => handleClick}></div>;
+	let squareClass = classNames({
+		square: true,
+		[`square--${value}`]: value !== null,
+	});
+
+	return <div className={squareClass} onClick={() => handleClick()}></div>;
 };
+
 export default Square;

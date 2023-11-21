@@ -1,20 +1,17 @@
 import Square from '../Square/Square';
 import './Board.css';
 
-//recive el state de los squares
 const Board = ({ squares, onClick, turn }) => {
-	const createSquares = (values) => {
-		return values.map((value, index) => (
-			// <div key={index}>{squares[value]}</div>
+	const createSquares = (values) =>
+		values.map((value) => (
 			<Square
 				turn={turn}
-				onClick={() => onClick(value)} //el value es la pocicion del tablero
+				onClick={() => onClick(value)}
 				value={squares[value]}
-				key={`squares_${value}`}
+				key={`square_${value}`}
 			/>
 		));
-	};
-	//funcion que recibe valores y los manda a html
+
 	return (
 		<div className="board">
 			<div className="row">{createSquares([0, 1, 2])}</div>
@@ -23,4 +20,5 @@ const Board = ({ squares, onClick, turn }) => {
 		</div>
 	);
 };
+
 export default Board;
