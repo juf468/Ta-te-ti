@@ -1,0 +1,20 @@
+.score-board {
+	width: 400px;
+	height: 80px;
+	display: grid;
+	grid-auto-flow: column;
+	margin-top: 5px;
+}
+
+.score-board div {
+	color: black;
+	text-align: center;
+	font-size: 4em;
+	padding: 5px;
+	font-weight: bold;
+	background-color: darkorange;
+}
+
+.score-board div:first-child {
+	background-color: greenyellow;
+}

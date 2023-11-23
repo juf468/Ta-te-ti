@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './App.css';
 import Board from './components/Board/Board';
+import ScoreBoard from './components/ScoreBoard/ScoreBoard';
 
 const App = () => {
 	const [turn, setTurn] = useState('X');
@@ -22,7 +23,12 @@ const App = () => {
 		[0, 4, 8],
 		[2, 4, 6],
 	];
-
+	const reset = () => {
+		//funcion que resetea el juego
+		setTurn('X'); //cuando resetee X volvera a tenre el 1er turno
+		setSquares(Array(9).fill(null)); // los squares vuelven a ser 9 posiciones vacias
+		setWinningSquares([]); //no hay squares ganadores, no hay animacion winner
+	};
 	const checkForWinner = (newSquares) => {
 		for (let i = 0; i < winningPositions.length; i++) {
 			const [a, b, c] = winningPositions[i]; // se guardan las winningPositions en 3 variables distintas
@@ -58,14 +64,15 @@ const App = () => {
 		//result = newSquares[a] o null, winningPositions=winningPositions[i] o  Array.from(Array(10).keys())
 		setTurn(null); //bloqueo los clicks
 		if (result !== null) {
-			//sin empate
 			setScore({
 				...score,
 				[result]: score[result] + 1,
-				//desestructure el score,  seleccione result y le doy al velor del score (x /o) y le sumo 1
 			});
+
+			//desestructure el score,  seleccione result y le doy al velor del score (x /o) y le sumo 1
 		}
 		setWinningSquares(winningPositions); //defino posicion ganadora para crear una animacion
+		setTimeout(reset, 2000); //ejecuto la funcion reset una vez trerminada la partida
 	};
 	return (
 		<div className="Container">
@@ -75,6 +82,7 @@ const App = () => {
 				squares={squares}
 				onClick={handleClick}
 			/>
+			<ScoreBoard scoreO={score.O} scoreX={score.X} />
 		</div>
 	);
 };

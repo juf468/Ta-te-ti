@@ -2,7 +2,7 @@
 	width: 200px;
 	height: 200px;
 	background-color: #848484;
-	margin: 5px;
+	margin: 10px;
 	transition: all 0.2s;
 	border-radius: 0%;
 	clip-path: polygon(
@@ -24,8 +24,8 @@
 .square--X {
 	width: 200px;
 	height: 200px;
-	background-color: #cd493a;
-	margin: 5px;
+	background-color: greenyellow;
+	margin: 10px;
 	transition: all 0.2s;
 	border-radius: 0%;
 	clip-path: polygon(
@@ -45,7 +45,7 @@
 }
 
 .square--O {
-	background-color: #4392f1;
+	background-color: darkorange;
 	border-radius: 50%;
 }
 
