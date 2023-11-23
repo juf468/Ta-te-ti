@@ -5,6 +5,7 @@ import Board from './components/Board/Board';
 const App = () => {
 	const [turn, setTurn] = useState('X');
 	const [squares, setSquares] = useState(Array(9).fill(null));
+	const [winningSquares, setWinningSquares] = useState([]); //estado para definir la posicion ganadora
 	const [score, setScore] = useState({
 		X: 0,
 		O: 0,
@@ -64,10 +65,16 @@ const App = () => {
 				//desestructure el score,  seleccione result y le doy al velor del score (x /o) y le sumo 1
 			});
 		}
+		setWinningSquares(winningPositions); //defino posicion ganadora para crear una animacion
 	};
 	return (
 		<div className="Container">
-			<Board turn={turn} squares={squares} onClick={handleClick} />
+			<Board
+				winningSquares={winningSquares}
+				turn={turn}
+				squares={squares}
+				onClick={handleClick}
+			/>
 		</div>
 	);
 };

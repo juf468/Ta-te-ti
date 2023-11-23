@@ -45,16 +45,21 @@
 }
 
 .square--X.winner {
+	/* si una x es winner agrego la sig animacion de keyframes ==> LINEA 56*/
 	animation: x-winner-animation infinite 2s ease-in-out;
+	/* lento a rapido con 2 seg*/
 }
 
 .square--O.winner {
+	/* si un o es winner agrego la sig animacion de keyframes ==> LINEA 66*/
 	animation: o-winner-animation infinite 0.5s ease-in-out;
+	/* latidos de 5 seg*/
 }
 
 @keyframes x-winner-animation {
+	/* Animacion que logra que el tres en linea rote en 360° */
 	from {
-		transform: rotate(0deg);
+		transform: rotate(0deg); /*empieza en 0 rotacion*/
 	}
 	to {
 		transform: rotate(360deg);
@@ -62,6 +67,7 @@
 }
 
 @keyframes o-winner-animation {
+	/* Animacion que logra que el tres en linea del o se expanda a un cuadrado cambiando el radius del o a 0 y vuelva a 50% repetidamente como un palpito */
 	0% {
 		border-radius: 50%;
 	}
@@ -72,3 +78,4 @@
 		border-radius: 50%;
 	}
 }
+/*EN EMPATE SE ACTIVAN AMBAS ANIMACIONES*/
